@@ -451,6 +451,17 @@ function downloadDeb(filename, recurse, cb) {
 	}
 }
 
+function getPackageCount() {
+	var ret = 0;
+	for (var i in packageList) {
+		var list = packageList[i];
+		for (var x in list) {
+			ret++;
+		}
+	}
+	return ret;
+}
+
 function main(args) {
 	fs.readFile(sourcesList, "utf8", function (err, content) { // load sourcesList
 		if (err) throw err;
@@ -494,6 +505,10 @@ function main(args) {
 				downloadDeb(args[1], args[2] === "true", function (filename) {
 
 				});
+			});
+		} else if (args[0] === "count") {
+			loadPackageCache(function () {
+				console.log("Packages Count: " + getPackageCount());
 			});
 		} else {
 			console.error("nodeDeb : command not found : " + args[0]);
