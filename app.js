@@ -426,13 +426,14 @@ function _downloadDeb(pack, cb) {
 	fs.exists(filename, function (e) {
 		if (e) {
 			console.log("Skipping: " + pack["Package"]);
+		} else {
+			console.log("Downloading: " + pack["Package"] + " : " + (pack["Size"] / 1024 / 1024).toFixed(3) + "Mb");
+			httpDownloadToPath(pack["Filename"].fullURL, filename, function (err) {
+				console.log("Downloaded: " + pack["Package"]);
+				cb(undefined);
+			}, true);
 		}
 	});
-	console.log("Downloading: " + pack["Package"] + " : " + (pack["Size"] / 1024 / 1024).toFixed(3) + "Mb");
-	httpDownloadToPath(pack["Filename"].fullURL, filename, function (err) {
-		console.log("Downloaded: " + pack["Package"]);
-		cb(undefined);
-	}, true);
 }
 
 function downloadDeb(filename, recurse, cb) {
