@@ -1,0 +1,14 @@
+###### Ubuntu Main Repos
+deb http://nz.archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse 
+
+###### Ubuntu Update Repos
+deb http://nz.archive.ubuntu.com/ubuntu/ raring-security main restricted universe multiverse 
+deb http://nz.archive.ubuntu.com/ubuntu/ raring-updates main restricted universe multiverse 
+deb http://nz.archive.ubuntu.com/ubuntu/ raring-proposed main restricted universe multiverse 
+deb http://nz.archive.ubuntu.com/ubuntu/ raring-backports main restricted universe multiverse 
+
+###### Ubuntu Partner Repo
+deb http://archive.canonical.com/ubuntu raring partner
+
+###### Ubuntu Extras Repo
+deb http://extras.ubuntu.com/ubuntu raring main
